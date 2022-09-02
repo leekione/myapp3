@@ -50,4 +50,21 @@ public class ThymeLeafController {
         private int age;
     }
 
+    @GetMapping("/each")
+    public String each(Model model){
+
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("홍길동1",10));
+        personList.add(new Person("홍길동2",20));
+        personList.add(new Person("홍길동3",30));
+        model.addAttribute("personList",personList);
+
+        return "thyme/each";
+    }
+
+    //일반for문
+    @GetMapping("/each2")
+    public String each2 (){
+        return "thyme/each2";
+    }
 }
