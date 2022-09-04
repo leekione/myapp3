@@ -25,13 +25,13 @@ class MemberSVCImplTest {
     @DisplayName("가입")
     @Order(1)
     void insert() {
-        member = new Member("test10@test.com","1234","별칭5");
+        Member newMember = new Member("test10@test.com","1234","별칭5");
 
-        Member insertedMember = memberSVC.insert(member);
-        log.info("insertedMember={}",insertedMember);
-        Assertions.assertThat(insertedMember.getEmail()).isEqualTo(member.getEmail());
-        Assertions.assertThat(insertedMember.getPw()).isEqualTo(member.getPw());
-        Assertions.assertThat(insertedMember.getNickname()).isEqualTo(member.getNickname());
+        member = memberSVC.insert(newMember);
+        log.info("insertedMember={}",member);
+        Assertions.assertThat(member.getEmail()).isEqualTo(newMember.getEmail());
+        Assertions.assertThat(member.getPw()).isEqualTo(newMember.getPw());
+        Assertions.assertThat(member.getNickname()).isEqualTo(newMember.getNickname());
     }
 
     @Test
