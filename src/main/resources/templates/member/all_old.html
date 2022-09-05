@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원목록</title>
+</head>
+<body>
+<div class="member-wrap">
+    <h3>회원목록</h3>
+    <hr>
+    <table>
+        <thead>
+        <tr>
+            <th>회원아이디</th>
+            <th>아이디</th>
+            <th>비밀번호</th>
+            <th>별칭</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="member : ${list}">
+            <td th:text="${member.memberId}">1</td>
+            <td><a href="/members/1" th:href="@{/members/{mid}(mid=${member.memberId})}" th:text="${member.email}">컴퓨터</a></td>
+            <td th:text="${member.pw}">10</td>
+            <td th:text="${member.nickname}">1000000</td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <div><button id="addBtn">회원등록</button></div>
+</div>
+<script>
+    addBtn.addEventListener('click',e=>{
+      location.href = '/members/save';
+    });
+  </script>
+</body>
+</html>

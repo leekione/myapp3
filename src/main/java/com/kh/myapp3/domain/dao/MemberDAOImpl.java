@@ -80,12 +80,12 @@ public class MemberDAOImpl implements MemberDAO{
         int result = 0;
         StringBuffer sql = new StringBuffer();
         sql.append("update member ");
-        sql.append("      set pw = ?, ");
-        sql.append("    nickname = ?, ");
+        sql.append("   set nickname = ?, ");
         sql.append("       udate = systimestamp ");
         sql.append(" where member_id = ? ");
+        sql.append("   and pw = ? ");
 
-        result = jt.update(sql.toString(),member.getPw(),member.getNickname(),memberId);
+        result = jt.update(sql.toString(),member.getNickname(),memberId,member.getPw());
         return result;
     }
 
@@ -95,11 +95,11 @@ public class MemberDAOImpl implements MemberDAO{
      * @return 삭제건수
      */
     @Override
-    public int delete(Long memberId) {
+    public int delete(Long memberId, String pw) {
         int result = 0;
-        String sql = "delete from member where member_id = ? ";
+        String sql = "delete from member where member_id = ? and pw = ? ";
 
-        result = jt.update(sql,memberId);
+        result = jt.update(sql,memberId,pw);
 
         return result;
     }
