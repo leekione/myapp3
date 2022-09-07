@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
-
 @Slf4j
 @Controller
 @RequestMapping("/members")
@@ -98,19 +96,19 @@ public class MemberController_old {
     }
 
     //탈퇴처리
-    @GetMapping("/{mid}/del")
-    public String delete(@PathVariable("mid") Long mid){
-        memberSVC.delete(mid);
-        return "redirect:/members";
-    }
+//    @GetMapping("/{mid}/del")
+//    public String delete(@PathVariable("mid") Long mid){
+//        memberSVC.delete(mid);
+//        return "redirect:/members";
+//    }
 
     //전체목록
-    @GetMapping
-    public String list(Model model) {
-        List<Member> list = memberSVC.all();
-        model.addAttribute("list",list);
-        return "member/all";
-
-    }
+//    @GetMapping
+//    public String list(Model model) {
+//        List<Member> list = memberSVC.all();
+//        model.addAttribute("list",list);
+//        return "member/all";
+//
+//    }
 
 }

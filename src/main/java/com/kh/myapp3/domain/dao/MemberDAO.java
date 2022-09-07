@@ -2,8 +2,6 @@ package com.kh.myapp3.domain.dao;
 
 import com.kh.myapp3.domain.Member;
 
-import java.util.List;
-
 public interface MemberDAO {
     /**
      * 등록
@@ -35,11 +33,6 @@ public interface MemberDAO {
      */
     int delete(Long memberId, String pw);
 
-    /**
-     * 전체목록
-     * @return 회원전체
-     */
-    List<Member> all();
 
     /**
      * 신규 회원아이디(내부관리용) 생성
