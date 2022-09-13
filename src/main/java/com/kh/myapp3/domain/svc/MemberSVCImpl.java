@@ -25,7 +25,7 @@ public class MemberSVCImpl implements MemberSVC{
         Long generateMemberId = memberDAO.generateMemberId();
         member.setMemberId(generateMemberId);
         memberDAO.insert(member);
-        return memberDAO.findById(generateMemberId);//dao와 svc 타입이 다름
+        return memberDAO.findById(generateMemberId);
     }
 
     /**

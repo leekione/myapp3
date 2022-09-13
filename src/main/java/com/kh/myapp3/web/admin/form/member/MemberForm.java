@@ -14,8 +14,8 @@ public class MemberForm {
     private String pw;      //비밀번호
     private String nickname;//닉네임
 
-    @DateTimeFormat(pattern = "yy-MM-dd a HH:mm:ss")  //@Number
+    @DateTimeFormat(pattern = "yy-MM-dd HH:mm:ss")  //@Number
     private LocalDateTime cdate;//가입일
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yy-MM-dd HH:mm:ss")
     private LocalDateTime udate;//수정일
 }

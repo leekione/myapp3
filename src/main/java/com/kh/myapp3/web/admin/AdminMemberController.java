@@ -8,6 +8,7 @@ import com.kh.myapp3.web.admin.form.member.EditForm;
 import com.kh.myapp3.web.admin.form.member.MemberForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -182,7 +184,19 @@ public class AdminMemberController {
     @GetMapping("/all")
     public String all(Model model){
 
-        List<Member> list = adminMemberSVC.all();
+        List<Member> members = adminMemberSVC.all();
+        List<MemberForm> list = new ArrayList<>();
+//        for(Member member : members){
+//            MemberForm memberForm = new MemberForm();
+//            BeanUtils.copyProperties(member,memberForm);
+//            list.add(memberForm);
+//        }
+        members.stream().forEach(member->{
+            MemberForm memberForm = new MemberForm();
+            BeanUtils.copyProperties(member,memberForm);
+            list.add(memberForm);
+        });
+
         model.addAttribute("list",list);
 
         return "admin/member/all";

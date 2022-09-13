@@ -32,7 +32,19 @@ public class MemberDAOImpl implements MemberDAO{
 
         return result;
     }
+/*
+    public int insert(product product) {
+    int result = 0;
+    StringBuffer sql = new StringBuffer();
+    sql.append("insert into product (product_id,pname,price,quantity) ");
+    sql.append("values(?,?,?,?) ");
 
+    result = jt.update(slq.toString(),product.getProductId(), product.getPname,product.getPrice,product.getQuantity) ");
+
+    return result;
+    }
+
+* */
     /**
      * 신규 회원아이디(내부관리용) 생성
      * @return 회원아이디
@@ -42,6 +54,13 @@ public class MemberDAOImpl implements MemberDAO{
         Long memberId = jt.queryForObject(sql, Long.class);
         return memberId;
     }
+    /*
+    * public Long generateProductId() {
+    *   String sql = "select product_product)id_seq.nextval from dual";
+    *   Long productId = jt.queryForObject(sql, Long.class);
+    *   return productId;
+    * }
+    * */
     /**
      * 조회 by 회원 아이디
      *
@@ -66,6 +85,22 @@ public class MemberDAOImpl implements MemberDAO{
 
         return findedMember;
     }
+    /*
+    * public Product findById(Long productId) {
+    *   StringBuffer sql = new StringBuffer();
+    *   sql.append("select product_id,pname,price,quantity ");
+    *   sql.append("  from product ");
+    *   sql.append(" where product_id = ? ");
+    *
+    *   Product findedProduct = null;
+    *   try {
+    *       findedProduct = jt.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(Product.class),productId);
+    *   } catch (DataAccessException e ) {
+    *       log.info("asdf={}",productId);
+    * }
+    * return findedProduct;
+    * }
+    * */
 
     /**
      * 수정
@@ -86,7 +121,19 @@ public class MemberDAOImpl implements MemberDAO{
         result = jt.update(sql.toString(),member.getNickname(),memberId,member.getPw());
         return result;
     }
-
+    /*
+    * public int update(Long productId, Product product) {
+    * int result = 0;
+    * StringBuffer sql = new StringBuffer();
+    * sql.append(" update product ");
+    * sql.append(" set pname = ?, ");
+    * sql.append("     price = ?, ");
+    * sql.append("     quantity = ?, ");
+    * sql.append(" where product_id = ? ");
+    *
+    * result = jt.update(sql.toString(),product.getPname(),product.getPrice(),product.getQuantity(),productId);
+    * }
+    * */
     /**
      * 탈퇴
      * @param memberId 회원아이디
@@ -101,5 +148,13 @@ public class MemberDAOImpl implements MemberDAO{
 
         return result;
     }
+    /*
+    * public int delete(Long productId) {
+    * int result = 0;
+    * String sql = "delete from product where product_id = ? ";
+    * result = jt.update(sql,productId);
+    * return result;
+    * }
+    * */
 
 }
