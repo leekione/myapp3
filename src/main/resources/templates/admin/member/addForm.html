@@ -50,7 +50,7 @@
         <input type="text" th:field="*{pw}">
 <!--        <span th:errorclass="errmsg" th:errors="*{pw}"></span>-->
         <ul th:if="${#fields.hasErrors('pw')}" th:class="errmsg">
-            <li th:each="err : ${#fields.errors('pw')}" th:text="${err}" />
+            <li th:each="err     : ${#fields.errors('pw')}" th:text="${err}" />
         </ul>
     </div>
     <div>

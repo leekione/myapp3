@@ -1,6 +1,8 @@
 package com.kh.myapp3.domain.svc;
 
-import com.kh.myapp3.domain.Member;
+import com.kh.myapp3.domain.dao.Member;
+
+import java.util.Optional;
 
 public interface MemberSVC {
     /**
@@ -32,7 +34,13 @@ public interface MemberSVC {
      */
     int delete(Long memberId, String pw);
 
-
+    /**
+     * 로그인
+     * @param email 이메일
+     * @param pw 비밀번호
+     * @return 회원
+     */
+    Optional<Member> login(String email, String pw);
 
 }
 

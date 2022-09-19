@@ -1,7 +1,7 @@
 package com.kh.myapp3.web;
 
 
-import com.kh.myapp3.domain.Member;
+import com.kh.myapp3.domain.dao.Member;
 import com.kh.myapp3.domain.svc.MemberSVC;
 import com.kh.myapp3.web.form.member.AddForm;
 import com.kh.myapp3.web.form.member.EditForm;
