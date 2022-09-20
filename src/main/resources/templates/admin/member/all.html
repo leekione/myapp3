@@ -67,7 +67,12 @@
     </table>
     <div><button type="button" id="addBtn">등록</button></div>
     </div>
-    <script th:inline="javascript">
+    <script>
+
+    //dom tree가 만들어지면 init 호출
+            window.addEventListener('DOMContentLoaded',init);
+
+        function init(){
             //등록
             addBtn.addEventListener('click',e=>{
                 console.log('클릭');
@@ -83,8 +88,8 @@
                     location.href = `/admin/members/${memberId}`;
                 }
             });
-
-        </script>
+        }
+    </script>
 
 </body>
 </html>
